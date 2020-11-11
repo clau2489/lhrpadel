@@ -35,17 +35,15 @@
 
 		<input type="hidden" name="producto" id="producto" value="<?php echo $producto ?>" class="campo-form">
 
-		<input type="hidden" name="producto" id="producto" value="<?php echo $producto ?>" class="campo-form">
-
 		<input type="hidden" name="metodo" id="metodo" value="<?php echo $metododeeenvio ?>" class="campo-form">
 		
 		<label>Total a pagar:
-			<input type="text" name="preciofinal" id="precio" placeholder="$ <?php echo $preciofinal ?>" class="campo-form">
+			<input type="text" name="preciofinal" id="preciofinal" value="<?php echo $preciofinal ?>" placeholder="$ <?php echo $preciofinal ?>" class="campo-form">
 		</label>
 
-		<label>
-			<input type="hidden" name="total" id="total" value="<?php echo $preciofinal ?>" class="campo-form">
-		</label>
+
+		<input type="hidden" name="total" id="total" value="<?php echo $preciofinal ?>" class="campo-form">
+
 
 		<label>Nombre y apellido: <span>*</span>
 			<input type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="campo-form" required>
@@ -53,6 +51,18 @@
 
 		<label>Dirección: <span>*</span>
 			<input type="text" name="direccion" id="direccion" placeholder="Dirección" class="campo-form" required>
+		</label>
+
+		<label>Ciudad: <span>*</span>
+			<input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" class="campo-form" required>
+		</label>
+
+		<label>Provincia: <span>*</span>
+			<input type="text" name="provincia" id="provincia" placeholder="Provincia" class="campo-form" required>
+		</label>
+
+		<label>Codigo Postal: <span>*</span>
+			<input type="text" name="cp" id="cp" placeholder="Codigo Postal" class="campo-form" required>
 		</label>
 
 		<label>Telefono: <span>*</span>

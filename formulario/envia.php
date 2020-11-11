@@ -15,13 +15,19 @@ if ( !isset($_POST["nombre"]) ||
      !isset($_POST["telefono"]) ) {
     die ("Es necesario completar todos los datos del formulario");
 }
+
+
+
+$producto = $_POST['producto'];
+$tipoenvio = $_POST['metodo'];
+$preciofinal = $_POST['preciofinal'];
 $nombre = $_POST['nombre'];
 $direccion = $_POST['direccion'];
-$email = $_POST['email'];
-$producto = $_POST['producto'];
-$preciofinal = $_POST['preciofinal'];
-$tipoenvio = $_POST['metodo'];
+$ciudad = $_POST['ciudad'];
+$provincia = $_POST['provincia'];
+$cp = $_POST['cp'];
 $telefono = $_POST['telefono'];
+$email = $_POST['email'];
 
 // Datos de la cuenta de correo utilizada para enviar vía SMTP
 $smtpHost = "c1800635.ferozo.com";  // Dominio alternativo brindado en el email de alta 
@@ -50,7 +56,19 @@ $mail->FromName = $nombre;
 $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
 
 $mail->Subject = 'Un cliente ha comprado desde tu sitio web'; // Este es el titulo del email.
-$mail->Body = "Se ha efectuado una compra a traves de tu sitio web.<br/>Te pasamos los detalles de la compra para que puedas contactarte con el comprador:<br/> Detalle de Compra:". $producto ."<br/>Total:". $preciofinal ."<br/> Nombre y Apellido:". $nombre ."<br/> Telefono del Cliente:". $telefono ."<br/> Metodo de Envio:". $tipoenvio ." <br/>Comunicate con este numero para coordinar entrega del producto"; // Texto del email en formato HTML
+$mail->Body = "Se ha efectuado una compra a traves de tu sitio web.<br/>
+Te pasamos los detalles de la compra para que puedas contactarte con el comprador:<br/> 
+
+Nombre y Apellido:". $nombre ."<br/> 
+Direccion:". $direccion ."<br/>
+Ciudad:". $ciudad ."<br/>
+Provincia:". $provincia ."<br/>
+Codigo Postal:". $cp ."<br/>
+Telefono del Cliente:". $telefono ."<br/>   
+Producto:". $producto ."<br/>  
+Importe: $". $preciofinal ."<br/> 
+Metodo de Envio:". $tipoenvio ." <br/><br/>
+Comunicate con este numero para coordinar entrega del producto"; // Texto del email en formato HTML
 
 $total = $_POST['total'];
 

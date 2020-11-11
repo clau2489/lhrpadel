@@ -171,7 +171,8 @@ mysql_query("SET NAMES 'utf8'");
       <br>
       <div class="row">                  
         <div class="col-md-12 text-center">
-          <h3>¿Porqué LHR Padel? </h3><h5>En LHR Padel reunimos los mejores medios de pago para que tengas a mano muchas alternativas para pagar tus compras.</h5>              
+          <h3>¿Porqué LHR Padel? </h3><h5>En LHR Padel reunimos los mejores medios de pago para que tengas a mano muchas alternativas para pagar tus compras.</h5>
+          <img src="assets/img/afip.png" width="50%">              
         </div>
       </div>
       <br><br>

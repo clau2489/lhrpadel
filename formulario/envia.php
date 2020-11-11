@@ -10,6 +10,7 @@ require("class.smtp.php");
 if ( !isset($_POST["nombre"]) ||
      !isset($_POST["direccion"]) ||
      !isset($_POST["email"]) ||
+     !isset($_POST["producto"]) ||
      !isset($_POST["preciofinal"]) || 
      !isset($_POST["telefono"]) ) {
     die ("Es necesario completar todos los datos del formulario");
@@ -17,11 +18,10 @@ if ( !isset($_POST["nombre"]) ||
 $nombre = $_POST['nombre'];
 $direccion = $_POST['direccion'];
 $email = $_POST['email'];
+$producto = $_POST['producto'];
 $preciofinal = $_POST['preciofinal'];
+$tipoenvio = $_POST['metodo'];
 $telefono = $_POST['telefono'];
-
-
-$mensaje = $nombre + $direccion + $email + $telefono + $preciofinal;
 
 // Datos de la cuenta de correo utilizada para enviar vía SMTP
 $smtpHost = "c1800635.ferozo.com";  // Dominio alternativo brindado en el email de alta 
@@ -50,10 +50,7 @@ $mail->FromName = $nombre;
 $mail->AddAddress($emailDestino); // Esta es la dirección a donde enviamos los datos del formulario
 
 $mail->Subject = 'Un cliente ha comprado desde tu sitio web'; // Este es el titulo del email.
-$mensajeHtml = nl2br($mensaje);
-$mail->Body = "{$mensajeHtml} <br /><br />Compra desde su sitio web<br />"; // Texto del email en formato HTML
-$mail->AltBody = "{$mensaje} \n\n Comunicate con este numero para coordinar entrega del producto"; // Texto sin formato HTML
-// FIN - VALORES A MODIFICAR //
+$mail->Body = "Se ha efectuado una compra a traves de tu sitio web.<br/>Te pasamos los detalles de la compra para que puedas contactarte con el comprador:<br/> Detalle de Compra:". $producto ."<br/>Total:". $preciofinal ."<br/> Nombre y Apellido:". $nombre ."<br/> Telefono del Cliente:". $telefono ."<br/> Metodo de Envio:". $tipoenvio ." <br/>Comunicate con este numero para coordinar entrega del producto"; // Texto del email en formato HTML
 
 $total = $_POST['total'];
 

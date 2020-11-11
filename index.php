@@ -48,7 +48,7 @@ mysql_query("SET NAMES 'utf8'");
               $CantidadMostrar=8;
               
               //Conexion  al servidor mysql
-              $conetar = new mysqli("localhost", "root", "", "c1800635_lhr");
+              $conetar = new mysqli("localhost", "root", "usbw", "c1800635_lhr");
               if ($conetar->connect_errno) {
                 echo "Fallo al conectar a MySQL: (" . $conetar->connect_errno . ") " . $conetar->connect_error;
               }else{

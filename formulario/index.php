@@ -10,7 +10,14 @@
 <body>
 
 <?php
+	$producto = $_POST['producto'];
 	$importe = $_POST['precio'];
+	$costo = $_POST['costoenvio'];
+	if ($costo == 0) {
+		$metododeeenvio = "Retira en domicilio del vendedor";
+	}else{
+		$metododeeenvio = " Envio a domicilio";
+	}
 	$costoenvio = $_POST['costoenvio'];
 	$preciofinal = $importe + $costoenvio;
 ?>
@@ -24,7 +31,13 @@
 
 		<br><br>
 
-		<h4>Enviale tus datos al vendedor</h4>	
+		<h4>Enviale tus datos al vendedor</h4>
+
+		<input type="hidden" name="producto" id="producto" value="<?php echo $producto ?>" class="campo-form">
+
+		<input type="hidden" name="producto" id="producto" value="<?php echo $producto ?>" class="campo-form">
+
+		<input type="hidden" name="metodo" id="metodo" value="<?php echo $metododeeenvio ?>" class="campo-form">
 		
 		<label>Total a pagar:
 			<input type="text" name="preciofinal" id="precio" placeholder="$ <?php echo $preciofinal ?>" class="campo-form">
